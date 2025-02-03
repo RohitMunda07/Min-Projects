@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Jost:ital,wght@0,100..900;1,100..900&family=Kalnia:wght@100..700&family=Lobster&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", serif;
+}
+
+body {
+    background: #4e54c8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8f94fb, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+section {
+    /* border: 2px solid yellow; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    
+}
+
+section div {
+    margin-top: 2rem;
+    /* border: 3px solid black; */
+    border-radius: 3rem;
+    width: 50rem;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+section div textarea {
+    border-radius: 25px;
+    padding: 20px;
+    background: #4e54c8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8f94fb, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    font-size: 48px;
+    background: floralwhite;
+    margin-bottom: 10px;
+}
+
+.add-btn {
+    width: 5rem;
+    height: 3rem;
+    font-weight: 700;
+    border-radius: 25px;
+    font-size: 28px;
+
+}
+
+.add-btn:hover {
+    background-color: rgb(2, 108, 223);
+    cursor: pointer;
+    color: white;
+    
+}
+
+#create-btn {
+    margin: 5rem 5rem;
+    padding: 10px;
+    border-radius: 40px;
+    height: 3rem;
+    font-weight: 700;
+    border-radius: 25px;
+    font-size: 28px;
+}
+
+#create-btn:hover {
+    background-color: rgb(5, 226, 71);
+    cursor: pointer;
+    color: white;
+}
+
+.trash-btn {
+    width: 5rem;
+    height: 3rem;
+    font-weight: 700;
+    border-radius: 25px;
+    font-size: 28px;
+}
+.trash-btn:hover {
+    background-color: rgb(237, 8, 38);
+    cursor: pointer;
+    color: white;
+}

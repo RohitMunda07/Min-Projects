@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+body{
+    background-color: gray;
+}
+textarea{
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+
+}
+button{
+    background: rgb(32, 76, 235);
+    
+}
