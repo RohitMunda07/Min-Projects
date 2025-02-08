@@ -1,16 +1,38 @@
 const createBtn = document.querySelector("#create-btn");
 const contentArea = document.querySelector(".contentArea");
-const trashBtn = document.querySelectorAll(".trash-btn");
 
 // Show notes from local storage
 function show() {
     const notes = JSON.parse(localStorage.getItem("notes")) || [];
+    contentArea.innerHTML = ''; // Clear existing notes to prevent duplicates on reload
     notes.forEach(note => {
         const noteContainer = createNoteContainer(note.text);
         contentArea.appendChild(noteContainer);
     });
 }
-show();
+
+// Create Note Container
+function createNoteContainer(text) {
+    const noteContainer = document.createElement('div'); // Container for note elements
+    noteContainer.classList.add('note-container'); // Add a class for styling and selection
+
+    const textArea = document.createElement('textarea');
+    textArea.setAttribute("cols", "25");
+    textArea.setAttribute("rows", "3");
+    textArea.className = "input-box";
+    textArea.value = text;  // Set the text from local storage
+
+    const trash = document.createElement('button');
+    trash.classList.add("ri-delete-bin-line");
+    trash.classList.add("trash-btn");
+
+    noteContainer.appendChild(textArea);
+    noteContainer.appendChild(trash);
+
+    textArea.addEventListener('input', updateStorage); // Attach listener here
+
+    return noteContainer;
+}
 
 // Update local storage with current notes
 function updateStorage() {
@@ -25,45 +47,17 @@ function updateStorage() {
 
 // Creating Notes
 createBtn.addEventListener('click', () => {
-    // Text Area
-    const textArea = document.createElement('textarea');
-    textArea.setAttribute("cols", "25");
-    textArea.setAttribute("rows", "3");
-    textArea.className = "input-box";
-
-    // Add Button
-    const addBtn = document.createElement('button');
-    addBtn.classList.add("add-btn");
-    addBtn.innerHTML = "Add";
-
-    // Trash Button
-    const trash = document.createElement('button');
-    trash.classList.add("ri-delete-bin-line");
-    trash.classList.add("trash-btn");
-
-    contentArea.appendChild(textArea);
-    contentArea.appendChild(addBtn);
-    contentArea.appendChild(trash);
-
-    // Add event listener for text area changes
-    textArea.addEventListener('input', updateStorage);
-    return contentArea;
-})
+    const noteContainer = createNoteContainer(""); // Create with empty text
+    contentArea.appendChild(noteContainer);
+});
 
 // Deleting Notes
 contentArea.addEventListener('click', (e) => {
     if (e.target.classList.contains("trash-btn")) {
-        e.target.previousElementSibling.remove(); // Removes the Add button
-        e.target.previousElementSibling.remove(); // Removes the text area
-        e.target.remove(); // Removes the Trash button
+        const noteContainer = e.target.parentNode; // Get the parent container
+        noteContainer.remove();
         updateStorage();
     }
-    else if (e.target.tagName === "TEXTAREA") {
-        const notes = document.querySelectorAll(".input-box");
-        notes.forEach(nt => {
-            nt.onkeyup = function () {
-                updateStorage();
-            }
-        })
-    }
-})
+});
+
+show(); // Call show() initially to load notes

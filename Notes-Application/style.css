@@ -47,7 +47,10 @@ section div textarea {
     background: floralwhite;
     margin-bottom: 10px;
 }
-
+.note-container{
+    margin-bottom: 0;
+    padding: 0 60px;
+}
 .add-btn {
     width: 5rem;
     height: 3rem;
